@@ -1,0 +1,158 @@
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.content{
+    position: fixed;
+    bottom: 15px;
+    background: rgba(0,0,0,0.5);
+    color: #f1f1f1;
+    width: 200px;
+    padding: 20px;
+    margin-left: 500px;
+}
+
+#tituloI{
+    color: #ffffff;
+    position:fixed;
+    right: 20%;
+    top: 36%;
+    z-index: 1;
+    
+}
+
+.line{
+    border-right:  2px solid rgba(255, 255, 255,0.75);
+        color: rgba(255, 255, 255, 0.75);
+        font-family:'Special Elite', monospace;
+        font-size: auto;
+        margin: 0 auto;
+        white-space: nowrap;
+        overflow: hidden;
+}
+
+.typingAnimation{
+    animation: blinkCursor 500ms steps(60) infinite normal, typing 5s steps(60) 1s normal both;
+    -webkit-animation: blinkCursor 500ms steps(60) infinite normal, typing 5s steps(60) 1s normal both;
+}
+
+@keyframes typing{
+    from{
+        width:0;
+    }
+    to{width: 17em;}
+}
+
+@keyframes blinkCursor{
+    from{
+        border-right-color:rgba(255, 255, 255,.75);
+    }
+    to{border-right-color: transparent;}
+}
+
+#main{
+    background-color: rgba(0,0,0,0.8);
+}
+
+.branco{
+    color:rgba(255, 255, 255, 0.75)
+}
+
+.inputs{
+    background-color:  rgba(220,214,222,0.8);
+   
+}
+
+#corpoC{
+    background-color:rgba(91, 91, 91, 1);
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
+
+.area-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+    justify-content: center;
+    align-items: center;
+}
+.login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color:rgba(203, 201, 201, 1);
+    border-radius: 10px;
+    width:355px;
+    height:435px;
+    padding:35px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.login form{
+    display: flex;
+    width:100%;
+    flex-direction: column;
+    
+}
+
+.login input{
+    margin-top:10px;
+    background-color:#252A34;
+    border: none;
+    height:45px;
+    outline: none;
+    border-radius:8px   ;
+    -webkit-border-radius:8px   ;
+    -moz-border-radius:8px   ;
+    -ms-border-radius:8px   ;
+    -o-border-radius:8px   ;
+    color:#CBD0F7;
+    padding-left: 10px;
+    
+}
+
+.login img{
+    width:100px;
+    height:auto;
+    
+}
+
+input::placeholder{
+    color:#CBD0F8;
+    font-size: 14px;
+    
+}
+
+form[type="submit"]{
+    display:block;
+    background-color:#5568FE;
+    font-size:20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor:pointer;
+}
+
+p{
+    color:rgba(53, 76, 97, 1);
+    
+}
+
+a{
+    color:#5568FE;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+
+
+
+
+

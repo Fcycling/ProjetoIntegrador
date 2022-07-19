@@ -1,0 +1,26 @@
+{{>menssagem}}
+
+
+{{#each errosNaPagina}}
+<div class="alert alert-danger">{{texto}}</div>
+{{else}}
+
+{{/each}}
+<body id="corpoC">
+  <section class="area-login">
+    <div class="login">
+      <div>
+        <img src="Logo-linhas.png">
+      </div>
+      <form method="POST" action="/encontrarP">
+        <input type="text" name="nome" placeholder="Nome" autofocus>
+        <input type="password" name="senha" placeholder="Digite sua senha">
+        <input type="email" name="email" placeholder="seuemail@gmail.com">
+        <input type="number" name="matricula" placeholder="Matrícula:" maxlength="12">
+        <input type="submit" value="ENTRAR">
+      </form>
+      <p>Ainda não tem uma conta?<a href="">Criar Conta</a></p>
+    </div>
+  </section>
+  
+</body>
