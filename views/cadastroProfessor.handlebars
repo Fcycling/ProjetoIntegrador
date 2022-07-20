@@ -12,12 +12,16 @@
       <div>
         <img src="Logo-linhas.png">
       </div>
-      <form method="POST" action="/encontrarP">
+      <form method="POST" action="/pagina/professor">
         <input type="text" name="nome" placeholder="Nome" autofocus>
         <input type="password" name="senha" placeholder="Digite sua senha">
         <input type="email" name="email" placeholder="seuemail@gmail.com">
         <input type="number" name="matricula" placeholder="Matrícula:" maxlength="12">
-        <input type="submit" value="ENTRAR">
+        <select class="form-control" name="eAdmin">
+            <option value="0" selected>Usuário</option>
+            <option value="1">Administrador</option>
+        </select>
+        <input type="submit" value="CADASTRAR">
       </form>
       <p>Ainda não tem uma conta?<a href="">Criar Conta</a></p>
     </div>

@@ -6,8 +6,8 @@ var bcrypt = require("bcryptjs")
 var usuario = require('../models/professor');
 
 module.exports = function(passport){
-    passport.use(new localStrategy({usernameField:'email'},(email,senha,done) => {
-
+    passport.use(new localStrategy({usernameField:'email',passwordField:'senha'},async(email,senha,done) => {
+        console.log("Chegou")
         usuario.findOne({email: email}).then((usuario) => {
             if(!usuario){
                 return done(null,false,{message:"Esta conta não existe"})
@@ -15,7 +15,7 @@ module.exports = function(passport){
 
             bcrypt.compare(senha, usuario.senha, (erro, batem) => {
                 if(batem){
-                    return done(null, user)
+                    return done(null, usuario)
                 }else{
                     return done(null, false, {message: "Senha incorreta!"})
                 }
@@ -23,13 +23,17 @@ module.exports = function(passport){
         })
     }))
 
-    passport.serializeUser((usuario,done)=>{
-        done(null, usuario.id)
+    passport.serializeUser((user,done)=>{
+        done(null, user.id)
     })
 
-    passport.deserializeUser((id, done)=>{
-        User.findById(id, (err, usuario) =>{
-            done(err, user)
-        })
+    passport.deserializeUser(async (id, done)=>{
+        try{
+            const user = await usuario.findByPk(id)
+            done(null, user)
+        }catch(erro){
+            done(erro, user)
+        }
+       
     })
 }

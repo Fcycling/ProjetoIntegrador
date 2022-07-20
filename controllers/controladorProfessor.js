@@ -30,32 +30,7 @@ controladorProfessor.loginP = function(req,res){
 }
 
 
-controladorProfessor.encontrarLogin = function(req,res){
-    professor.findOne({
-        raw: true,
-        where:{
-            email: req.body.email
-        }
-    }).then(
-        function(user){
-            cripto.compare(req.body.senha, user.senha).then(function(result){
-                req.flash('success_msg', "Login realizado com sucesso!")
-                console.log(result);
-                if(result){
-                    res.status(200).redirect('/pagina/professor');
-                }else{
-                    res.status(500).send("Erro ao realizar login!")
-                }
-            }
-            ).catch(function(error){
-                req.flash("error_msg","Erro ao logar")
-                req.status(500).send("Erro: " + error)
-            })
-        }
-    ).catch(function(error){
-        res.status(500).send("Erro ao procurar usuário: " + error)
-    })
-}
+
 
 
 controladorProfessor.inicioP = function(req,res){
@@ -66,42 +41,47 @@ controladorProfessor.inicioP = function(req,res){
     }
 }
 
-controladorProfessor.inserirProfessorBanco=  async function(req,res){
+controladorProfessor.inserirProfessorBanco = async function (req, res) {
     var erros = []
-    
-    if(!req.body.email|| typeof req.body.email == undefined || req.body.email == null){
+
+    if(!req.body.email || typeof req.body.email == undefined || req.body.email == null){
         erros.push({texto: "Email inválido"})
     }
-    if(!req.body.nome|| typeof req.body.nome == undefined || req.body.nome == null){
-        erros.push({texto: "Nome inválido"})
+
+    if(!req.body.senha || typeof req.body.senha == undefined || req.body.senha == null){
+        erros.push({texto: "Senha inválida"})
     }
-    
-    if(!req.body.senha|| typeof req.body.senha == undefined || req.body.senha == null){
-     erros.push({texto:"Senha Inválida"})   
+
+    if(req.body.senha.length < 6){
+        erros.push({texto: "Senha muito pequena!"})
     }
-    if(req.body.senha.length<6){
-        erros.push({texto:"Senha Pequena"})
-    }
-    if(erros.length>0){
+
+    if(erros.length > 0){//se existe algum erro
         res.render("cadastroProfessor",{errosNaPagina: erros})
     }else{
-     var password = await cripto.hash(req.body.senha,8)
-     
-     usuario.create({
-         email: req.body.email,
-         senha: password
-         }).then(function(){
-             req.flash("success_msg","Cadastro realizado com Sucesso")
-             res.status(200).redirect("/loginP");
-         }
-         ).catch(function(error){
-             req.flash("error_msg","Erro ao cadastrar usuário")
-             res.redirect("/cadastroP")
-             //res.status(500).send("Erro ao criar Usuário:"+error)
-         })
-     }
- }
-
+        var pass = await cripto.hash(req.body.senha,8)
+        
+        professor.create({
+            nome: req.body.nome,
+            email: req.body.email,
+            senha: pass,
+            eAdmin: req.body.eAdmin,
+            matricula: req.body.matricula
+        }).then(
+            function(){
+                req.flash("success_msg","Professor cadastrado com sucesso!")
+                res.status(200).redirect("/loginP");
+            }
+        ).catch(
+            function(error){
+                req.flash("error_msg","Erro ao cadastrar professor!" + error)
+                //res.status(500).send("Erro ao criar usuário: " + error);
+                res.redirect("/cadastroP")
+            }
+        )
+    }
+    
+}
 
 
     

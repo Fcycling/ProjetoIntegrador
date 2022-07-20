@@ -23,7 +23,11 @@ var teacher = banco.define('teacher',{
     },
     
     senha: {
-        type: sequelize.STRING(50),
+        type: sequelize.STRING,
+        allowNull: false,
+    },
+    eAdmin:{
+        type: sequelize.INTEGER,
         allowNull: false,
     }
 },{

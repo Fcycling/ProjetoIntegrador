@@ -26,5 +26,5 @@ var recurso = banco.define('recurso',{
     timestamps: false    
 })
 
-//recurso.sync();
+recurso.sync();
 module.exports = recurso;

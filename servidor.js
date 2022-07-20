@@ -3,6 +3,8 @@ var handlebars = require("express-handlebars");
 var rotas = require("./routes/rotas");
 var sesion = require ("express-session");
 var flash = require("connect-flash");
+var passport = require("passport")
+require("./configs/seguranca")(passport)
 var servidor = express();
 
 const PORTA= 3000
@@ -12,7 +14,8 @@ servidor.use(sesion({
     resave: true,
     saveUninitialized: true
 }))
-
+servidor.use(passport.initialize())
+servidor.use(passport.session())
 servidor.use(flash())
 
 servidor.use((req,res, next) => {
@@ -31,6 +34,7 @@ servidor.use(rotas);
 servidor.use(express.static("images"))
 servidor.use(express.static("style"))
 servidor.use(express.static("movies"))
+servidor.use(express.static("helpers"))
 
 
 
