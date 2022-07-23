@@ -1,14 +1,34 @@
-<form action="/logar" method="post">
+{{>menssagem}}
+
+
+{{#each errosNaPagina}}
+<div class="alert alert-danger">{{texto}}</div>
+{{else}}
+
+{{/each}}
+
+<body class="corpoC">
     
-    <div class="mb-3">
-        <label class="form-label">Email</label>
-        <input type="email" class="form-control" name="email">
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Senha</label>
-        <input class="form-control" name="senha" type="password">
-        <a href="/recursos"><button>Entrar</button></a>
-    </div>
+    <section class="area-login">
+        <div class="login">
+            <div>
+                <img src="Logo-Linhas.png">
+            </div>
+            <form action="/logar" method="post">
     
+            <div>
+            
+            <input type="email" class="form-control" name="email" placeholder="Email">
+            </div>
+            <div>
+            
+            <input class="form-control" name="senha" type="password" placeholder="Senha">
+            </div>
+    <input type="submit" value="ENTRAR">
+            <p>Ainda não tem uma conta?<a href="/cadastroP">Criar Conta</a></p>
     
-</form>
+            </form>
+        </div>
+    </section>
+    
+</body>

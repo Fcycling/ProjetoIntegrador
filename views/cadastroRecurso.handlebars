@@ -1,0 +1,40 @@
+<h2 class="title">Cadastrar Recursos</h2>
+
+
+<body class="corpoC">
+    
+    <section class="area-login">
+        <div class="login">
+            <div>
+                <img src="Logo-linhas.png">
+            </div>
+            <div>
+            <form action="/recursos" method="post" >
+            <div>
+           <select name="tipo">
+            <option selected>Tipo</option>
+            <option value="Sala de Aula">Sala de Aula</option>
+            <option value="Auditório">Auditório</option>
+            <option value="Projetor">Projetor</option>
+            <option value="Notebook">Notebook</option>
+           </select>
+            {{!--<input id="inputTipo" type="text" name="tipo" placeholder="Tipo">--}}
+            </div>
+            <div>
+            <textarea name="descricao" cols="20" rows="2" placeholder="Digite a descrição do recurso"></textarea>
+            </div>
+            <div>
+           <select name="status">
+            <option selected>Status</option>
+            <option value="Disponível">Disponível</option>
+            <option value="Reservado">Reservar</option>
+           </select>
+            {{!--<input id="inputStatus" type="text" name="status" placeholder="Status">--}}
+            </div>
+            <input id="botaoCadastrar" type="submit" value="CADASTRAR">
+            </form>
+        </div>
+    </section>
+</body>
+
+    

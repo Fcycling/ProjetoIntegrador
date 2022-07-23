@@ -67,7 +67,7 @@
    
 }
 
-#corpoC{
+.corpoC{
     background-color:rgba(91, 91, 91, 1);
     font-family: Arial, Helvetica, sans-serif;
     overflow: hidden;
@@ -88,7 +88,7 @@
     background-color:rgba(203, 201, 201, 1);
     border-radius: 10px;
     width:355px;
-    height:435px;
+    height:475px;
     padding:35px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -101,6 +101,17 @@
     width:100%;
     flex-direction: column;
     
+}
+.login select{
+    margin-top:10px;
+    background-color:#252A34;
+    color: #CBD0F7;
+}
+
+.login textarea{
+    margin-top:10px ;
+    background-color:#252A34;
+    color: #CBD0F7;
 }
 
 .login input{
@@ -149,6 +160,36 @@ a{
     color:#5568FE;
     text-decoration: none;
     margin-left: 10px;
+}
+
+.title{
+    color:#CBD0F8;
+    font-family: Source Code Pro;
+}
+
+#botaoCadastrar{
+    margin-top:10px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+
+#btnLogin{
+    margin-top: 10px;
+    width:100%;
+}
+
+.fundo{
+    
+}
+
+#barraPesquisa{
+    width: 45%;
+}
+.table{
+    color:#CBD0F7
 }
 
 

@@ -13,22 +13,9 @@ controladorRecursos.renderizarPaginaRecursos = function(req,res){
     }
 }
 
-controladorRecursos.consultarRecursos = function(req,res){
-    professor.findAll({
-        raw: true,
-        where:{
-            tipo: req.body.tipo
-        }
-    }).then(function(dados) {
-        res.render("paginaPesquisa",{recursos: dados})
-        console.log(dados)
-    }).catch(function(error){
-        
-        res.status(500).send(`Erro ao buscar Ingresso: ${error}` )
-    })
-} 
 
 controladorRecursos.inserirRecursosBanco= function(req,res){
+    console.log("Erro: " + req.body.descricao)
     recursos.create({
         descricao:req.body.descricao,
         tipo: req.body.tipo,
@@ -39,6 +26,7 @@ controladorRecursos.inserirRecursosBanco= function(req,res){
         ).catch(function(error){
             res.status(500).send("Erro ao cadastrar Recurso: " + error)
         })
+        
 }
 
 controladorRecursos.atualizarRecursoBanco= function(req,res){
@@ -83,7 +71,6 @@ controladorRecursos.editarRecursoBanco = function(req,res){
             id: req.params.id}
     }).then(function(recursos){
         res.render("editarFormRecursos",{
-            idRecurso: req.params.id,
             descricaoRecurso:recursos.descricao,
             tipoRecurso: recursos.tipo,
             statusRecurso: recursos.status,
@@ -109,7 +96,7 @@ controladorRecursos.montarReqEdicao = function(req, res){
     }
 }
 ).then(function(){
-    res.status(200).redirect('/recurso')
+    res.status(200).redirect('/paginaP')
 }).catch(function(error){
     res.status(500).send("Erro ao editar Recurso " + error)
 })
@@ -118,8 +105,8 @@ controladorRecursos.montarReqEdicao = function(req, res){
 controladorRecursos.montarReqDelete = function(req,res){
     axios.delete('/removerRecurso/'+req.params.id,{
         proxy:{
-            host:'18.215.162.117',
-            port:3306
+            host:'localhost',
+            port:3000
         }
     }).then(function(){
         res.status(200).redirect("/recursos")
@@ -131,9 +118,6 @@ controladorRecursos.montarReqDelete = function(req,res){
 controladorRecursos.pesquisarRecurso = function(req,res){
     recursos.findAll({
         raw: true,
-        where:{
-            tipo: req.body.tipo
-        }
     }).then(function(dados){
         res.render("paginaP",{recursos:dados})
         console.log(dados)

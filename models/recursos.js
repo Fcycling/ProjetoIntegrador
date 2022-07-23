@@ -9,7 +9,7 @@ var recurso = banco.define('recurso',{
         primaryKey: true,
         autoIncrement: true,
     },
-    descrição: {
+    descricao: {
         type: sequelize.STRING,
         allowNull: false,
     },
