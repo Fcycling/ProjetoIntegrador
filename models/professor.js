@@ -1,7 +1,7 @@
 var sequelize = require('sequelize');
 var banco = require('../configs/bancoConfig');
 
-var teacher = banco.define('teacher',{
+var professor = banco.define('teacher',{
     
     id:{
         type: sequelize.INTEGER,
@@ -35,5 +35,5 @@ var teacher = banco.define('teacher',{
     timestamps: false
 })
 
-teacher.sync()
-module.exports = teacher;
+//professor.sync()
+module.exports = professor;

@@ -1,7 +1,7 @@
 var sequelize = require('sequelize');
 var banco = require('../configs/bancoConfig');
 
-var recurso = banco.define('recurso',{
+var recursos = banco.define('recurso',{
     
     id:{
         type: sequelize.INTEGER,
@@ -26,5 +26,6 @@ var recurso = banco.define('recurso',{
     timestamps: false    
 })
 
-recurso.sync();
-module.exports = recurso;
+
+//recursos.sync();
+module.exports = recursos;

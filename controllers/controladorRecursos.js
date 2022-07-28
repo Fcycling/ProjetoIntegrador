@@ -31,8 +31,8 @@ controladorRecursos.inserirRecursosBanco= function(req,res){
 
 controladorRecursos.atualizarRecursoBanco= function(req,res){
     recursos.update({
-        descricao:req.body.descricaoRecursos,
-        tipo:req.body.tipoRecursos,
+        descricao:req.body.descricaoRecurso,
+        tipo:req.body.tipoRecurso,
         status:req.body.statusRecurso
     },{
         where: {
@@ -71,6 +71,7 @@ controladorRecursos.editarRecursoBanco = function(req,res){
             id: req.params.id}
     }).then(function(recursos){
         res.render("editarFormRecursos",{
+            idRecurso: req.params.id,
             descricaoRecurso:recursos.descricao,
             tipoRecurso: recursos.tipo,
             statusRecurso: recursos.status,
@@ -84,9 +85,9 @@ controladorRecursos.editarRecursoBanco = function(req,res){
 controladorRecursos.montarReqEdicao = function(req, res){
     axios.put('/recurso/'+ req.params.id,
     qs.stringify({
-        descricaoRecurso: req.body.descricaoRecurso,
-        tipoRecurso: req.body.tipoRecurso,
-        statusRecurso: req.body.statusRecurso,
+        descricaoRecurso: req.body.descricao,
+        tipoRecurso: req.body.tipo,
+        statusRecurso: req.body.status,
     }),{headers:{
         'Content-Type': 'application/x-www-form-urlencoded'
     },
@@ -103,21 +104,36 @@ controladorRecursos.montarReqEdicao = function(req, res){
 }
 
 controladorRecursos.montarReqDelete = function(req,res){
-    axios.delete('/removerRecurso/'+req.params.id,{
+    
+    axios.delete('/apagar/'+req.params.id,{
         proxy:{
             host:'localhost',
             port:3000
         }
     }).then(function(){
-        res.status(200).redirect("/recursos")
+        res.status(200).redirect("/paginaP")
     }).catch(function(error){
         res.status(500).send("Erro ao apagar recurso" + error)
     })
 }
 
+controladorRecursos.pesquisarRecursoBanco = function(req,res){
+    recursos.findAll({
+        raw: true
+    }).then(function(dados){
+        res.render("paginaP",{recursos:dados})
+        console.log(dados)
+    }).catch(function(error){
+        res.status(500).send(`Erro ao buscar recurso : ${error}`)
+  })
+}
+
 controladorRecursos.pesquisarRecurso = function(req,res){
     recursos.findAll({
         raw: true,
+        where:{
+            status:req.body.status  
+        }
     }).then(function(dados){
         res.render("paginaP",{recursos:dados})
         console.log(dados)
@@ -129,7 +145,9 @@ controladorRecursos.pesquisarRecurso = function(req,res){
 
 controladorRecursos.apagarRecursos = function(req,res){
     recursos.destroy({
-        where:{}
+        where:{
+            id: req.params.id
+        }
     }).then(function(){
         res.sendStatus(200)
     }).catch(function(error){

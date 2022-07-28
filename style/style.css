@@ -88,7 +88,7 @@
     background-color:rgba(203, 201, 201, 1);
     border-radius: 10px;
     width:355px;
-    height:475px;
+    height:490px;
     padding:35px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -181,15 +181,21 @@ a{
     width:100%;
 }
 
-.fundo{
-    
-}
 
 #barraPesquisa{
     width: 45%;
 }
 .table{
-    color:#CBD0F7
+    color:#CBD0F7;
+}
+
+/*.botoes{
+    width: 35px;
+}*/
+
+.alinhar{
+    position: relative;
+    right: 120px;
 }
 
 

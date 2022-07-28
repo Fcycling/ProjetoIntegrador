@@ -12,17 +12,20 @@ const PORTA= 3000
 servidor.use(sesion({
     secret: 'aulanode',
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: true,
 }))
 servidor.use(passport.initialize())
 servidor.use(passport.session())
 servidor.use(flash())
 
+
+//middleware
 servidor.use((req,res, next) => {
     res.locals.success_msg = req.flash("succes_msg")
     res.locals.error_msg = req.flash("error_msg")
+    res.locals.error = req.flash("error")
+    res.locals.user = req.user || null
     next() 
-    
 })
 
 
@@ -33,7 +36,6 @@ servidor.use(express.urlencoded({extended:true}));
 servidor.use(rotas);
 servidor.use(express.static("images"))
 servidor.use(express.static("style"))
-servidor.use(express.static("movies"))
 servidor.use(express.static("helpers"))
 
 
