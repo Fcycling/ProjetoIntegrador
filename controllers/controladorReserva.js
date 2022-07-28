@@ -36,6 +36,14 @@ controladorReserva.atualizarReserva = function(req,res){
     })
 }
 
+controladorReserva.paginaEditarReserva= function(req,res){
+    try {
+        res.render("paginaReserva")
+    } catch (error) {
+        res.status(500).send("Erro ao acessar página de reserva:" + error)
+    }
+}
+
     
 
 
