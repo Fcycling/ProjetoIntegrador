@@ -8,7 +8,7 @@ var conexao = new sequelize ("projetointegrador","root","123456789",{
 conexao.authenticate().then(function(){
     console.log("Conectado ao banco com sucesso")
 }).catch(function(erro){
-    console.log("Erro ao conectar-se ao banco" + erro)
+    console.log("Erro ao conectar-se ao banco ggg" + erro)
 })
 
 module.exports = conexao
