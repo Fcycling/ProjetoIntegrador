@@ -1,0 +1,36 @@
+{
+  "name": "pi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "servidor.js",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "axios": "^0.27.2",
+    "connect-flash": "^0.1.1",
+    "express-handlebars": "^6.0.6",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "express-flash": "^0.0.2",
+    "handlebars": "^4.7.7",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.19",
+    "passport-local": "^1.0.0",
+    "passport": "^0.6.0",
+    "querystring": "^0.2.1",
+    "sequelize": "^6.21.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fcycling/https---github.com-Fcycling-Projeto-Integrador.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fcycling/https---github.com-Fcycling-Projeto-Integrador/issues"
+  },
+  "homepage": "https://github.com/Fcycling/https---github.com-Fcycling-Projeto-Integrador#readme"
+}
