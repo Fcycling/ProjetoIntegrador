@@ -7,7 +7,7 @@ var passport = require("passport")
 require("./configs/seguranca")(passport)
 var servidor = express();
 
-const PORTA= 3336
+const PORTA= 3000
 
 servidor.use(sesion({
     secret: 'aulanode',
