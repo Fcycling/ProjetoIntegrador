@@ -10,7 +10,7 @@ controladorReserva.inserirReservaBanco = function(req,res){
        dataInicial : req.body.dataInicial,
        dataFinal: req.body.dataFinal,
        idRecurso: req.params.id,
-       idProfessor: 1     
+       idProfessor: req.params.id    
    }).then(function(){
     res.status(200).redirect("/paginaP");
 }

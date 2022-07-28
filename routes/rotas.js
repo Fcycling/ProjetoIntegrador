@@ -20,7 +20,7 @@ rotas.post('/pagina/professor', professor.inserirProfessorBanco)
 rotas.put("/recurso/:id",recursos.atualizarRecursoBanco)
 rotas.get('/paginaP',recursos.pesquisarRecursoBanco)
 rotas.get('/inicioRecursos',recursos.renderizarPaginaRecursos)
-rotas.get('/cadastrar', recursos.cadastroRecursos)
+rotas.get('/cadastrar', admin,recursos.cadastroRecursos)
 
 rotas.post('/recurso/:id',autenticado,recursos.montarReqEdicao)
 rotas.get('/recursos/:id', autenticado,recursos.editarRecursoBanco)
