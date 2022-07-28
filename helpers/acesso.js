@@ -1,6 +1,6 @@
 module.exports = {
     autenticado: function(req,res,next){
-        if(req.isAuthenticated() && req.user.eAdmin == 0){
+        if(req.isAuthenticated()){
             return next()
         }
         req.flash("error_msg","Você precisa realizar login hhhh!")
