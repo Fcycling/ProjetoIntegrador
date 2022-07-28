@@ -93,7 +93,7 @@ controladorRecursos.montarReqEdicao = function(req, res){
     },
     proxy:{
         host: '52.90.187.126',
-        port: 3000
+        port: 3336
     }
 }
 ).then(function(){
@@ -108,7 +108,7 @@ controladorRecursos.montarReqDelete = function(req,res){
     axios.delete('/apagar/'+req.params.id,{
         proxy:{
             host:'52.90.187.126',
-            port:3000
+            port:3336
         }
     }).then(function(){
         res.status(200).redirect("/paginaP")
