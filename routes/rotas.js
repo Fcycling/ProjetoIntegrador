@@ -22,8 +22,8 @@ rotas.get('/paginaP',recursos.pesquisarRecursoBanco)
 rotas.get('/inicioRecursos',recursos.renderizarPaginaRecursos)
 rotas.get('/cadastrar', admin,recursos.cadastroRecursos)
 
-rotas.post('/recurso/:id',autenticado ,admin,recursos.montarReqEdicao)
-rotas.get('/recursos/:id', autenticado,admin,recursos.editarRecursoBanco)
+rotas.post('/recurso/:id',admin,recursos.montarReqEdicao)
+rotas.get('/recursos/:id',admin,recursos.editarRecursoBanco)
 
 
 rotas.delete("/apagar/:id", recursos.removerRecursoBanco)
