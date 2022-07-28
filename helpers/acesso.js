@@ -3,7 +3,7 @@ module.exports = {
         if(req.isAuthenticated() && req.user.eAdmin == 1){
             return next()
         }
-        req.flash("error_msg","Você precisa realizar login!")
+        req.flash("error_msg","Você precisa realizar login hhhh!")
         res.redirect("/paginaP")
     },
     //aa
@@ -11,7 +11,7 @@ module.exports = {
         if(req.isAuthenticated() && req.user.eAdmin == 0){
             return next()
         }else if(!req.isAuthenticated()){
-            req.flash("error_msg","Você precisa realizar login!")
+            req.flash("error_msg","Você precisa realizar login gggg!")
         }else{
             req.flash("error_msg","Você precisa ser um administrador!")
         }
