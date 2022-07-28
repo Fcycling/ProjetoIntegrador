@@ -10,7 +10,7 @@ controladorReserva.inserirReservaBanco = function(req,res){
        dataInicial : req.body.dataInicial,
        dataFinal: req.body.dataFinal,
        idRecurso: req.params.id,
-       idProfessor: req.params.id    
+       idProfessor: req.user.id    
    }).then(function(){
     res.status(200).redirect("/paginaP");
 }
@@ -34,14 +34,6 @@ controladorReserva.atualizarReserva = function(req,res){
     }).catch(function(error){
         res.status(500).send("Erro ao reservar: " + error)
     })
-}
-
-controladorReserva.paginaEditarReserva= function(req,res){
-    try {
-        res.render("paginaReserva")
-    } catch (error) {
-        res.status(500).send("Erro ao acessar página de reserva:" + error)
-    }
 }
 
     

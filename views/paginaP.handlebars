@@ -49,22 +49,23 @@
         <td>{{descricao}}</td>
         <td>{{tipo}}</td>
         <td>{{status}}</td>
+        
         <td>
             <a href="/recursos/{{id}}"><button type="submit" class="btn btn-warning" >Editar</button></a>
             <a href="/removerRecurso/{{id}}"><button type="submit" class="btn btn-danger">Apagar</button></a>
         </td>
         <form action="/reservar/recurso/{{id}}" method="post">
-        <td><input type="date" name="dataInicial"></td>
-        <td><input type="date" name="dataFinal"></td>
+        <td><input type="date" name="dataInicial">{{dataInicial}}</td>
+        <td><input type="date" name="dataFinal">{{dataFinal}}</td>
          <td>
             <button type="submit" class="btn btn-secondary" >Reservar</button>
             
              </td>
              </form>
              <td>
-                <form action="/recursos/{{id}}">
-                <button type="submit" class="btn btn-warning">Editar Reserva</button>
-                </form>
+                
+                <a href="/paginaEditar/reserva"><button type="submit" class="btn btn-warning">Editar Reserva</button></a>
+                
              </td>
        
     </tr>
