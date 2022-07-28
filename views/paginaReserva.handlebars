@@ -1,0 +1,32 @@
+<body class="corpoC">
+    <h2>Editando Reserva com ID {{idRecurso}}</h2>
+<section class="area-login">
+    <div class="login">
+        <form action="/recurso/{{idRecurso}}" method="post">
+    <div class="mb-3">
+        <label class="form-label">Descrição</label>
+        <input class="form-control" type="text" name="descricao" value="{{descricaoRecurso}}">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Tipo</label>
+        <input class="form-control" type="text" name="tipo" value="{{tipoRecurso}}">
+    </div>
+     <div class="mb-3">
+        <label class="form-label">Status</label>
+        <input class="form-control" type="text" name="status" value="{{statusRecurso}}">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Data inicial</label>
+        <input class="form-control" type="date" name="dataInicial" value="{{dataInicial}}">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Data Final</label>
+        <input class="form-control" type="date" name="dataFinal" value="{{dataFinal}}">
+    </div>
+  
+    <button type="submit" class="btn btn-primary">Atualizar</button>
+</form>
+    </div>
+</section>
+
+</body>
