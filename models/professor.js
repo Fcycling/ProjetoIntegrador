@@ -35,5 +35,5 @@ var professor = banco.define('teacher',{
     timestamps: false
 })
 
-//professor.sync()
+professor.sync()
 module.exports = professor;

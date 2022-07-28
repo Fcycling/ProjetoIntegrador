@@ -41,5 +41,5 @@ reserva.belongsTo(professor)
 
 
 
-//reserva.sync();
+reserva.sync();
 module.exports = reserva;
