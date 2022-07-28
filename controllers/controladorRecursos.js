@@ -92,7 +92,7 @@ controladorRecursos.montarReqEdicao = function(req, res){
         'Content-Type': 'application/x-www-form-urlencoded'
     },
     proxy:{
-        host: 'localhost',
+        host: '52.90.187.126',
         port: 3000
     }
 }
@@ -107,7 +107,7 @@ controladorRecursos.montarReqDelete = function(req,res){
     
     axios.delete('/apagar/'+req.params.id,{
         proxy:{
-            host:'localhost',
+            host:'52.90.187.126',
             port:3000
         }
     }).then(function(){

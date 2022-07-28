@@ -1,7 +1,7 @@
 var sequelize = require('sequelize');
 
-var conexao = new sequelize ("bancopi","root","nicaslo@07",{
-    host:"localhost",
+var conexao = new sequelize ("projetointegrador","root","123456789",{
+    host:"projetointegrador.cysmzdamoc6d.us-east-1.rds.amazonaws.com",
     dialect: "mysql"
 })
 
