@@ -26,6 +26,8 @@ rotas.post('/recurso/:id',admin,recursos.montarReqEdicao)
 rotas.get('/recursos/:id',admin,recursos.editarRecursoBanco)
 
 
+rotas.put("/reservarRecurso", reservas.atualizarReserva)
+
 rotas.delete("/apagar/:id", recursos.removerRecursoBanco)
 rotas.get("/removerRecurso/:id",admin, recursos.montarReqDelete);
 rotas.post("/pesquisaRecurso", recursos.pesquisarRecurso)

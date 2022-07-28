@@ -19,6 +19,23 @@ controladorReserva.inserirReservaBanco = function(req,res){
 })
 }
 
+controladorReserva.atualizarReserva = function(req,res){
+    reserva.update({
+        descricao:req.body.descricaoRecurso,
+        tipo:req.body.tipoRecurso,
+        status:req.body.statusRecurso,
+        dataFinal: req.body.dataFinal,
+        dataInicial: req.body.dataInicial
+    },{
+        where: {
+            id:req.params.id,}
+    }).then(function(){
+        res.sendStatus(200);
+    }).catch(function(error){
+        res.status(500).send("Erro ao reservar: " + error)
+    })
+}
+
     
 
 
